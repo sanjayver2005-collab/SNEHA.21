@@ -1,0 +1,1854 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SNEHA — Comfort, Crafted Beautifully</title>
+    <meta name="description" content="Thoughtfully designed bedding and home essentials for spaces that feel like you. Premium luxury home lifestyle brand.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#F7F4EE', /* Warm Ivory / Soft Cream */
+                        secondary: '#292522', /* Deep Espresso / Charcoal Brown */
+                        accent: '#B86B4B', /* Terracotta / Warm Clay */
+                        softBeige: '#E9E1D5',
+                        mutedTaupe: '#A79C91',
+                        lightSand: '#D8CCBD'
+                    },
+                    fontFamily: {
+                        display: ['"Playfair Display"', 'serif'],
+                        body: ['"DM Sans"', 'sans-serif'],
+                    },
+                    borderRadius: {
+                        'xs': '4px',
+                        'sm': '8px',
+                        'md': '16px',
+                        'lg': '28px',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- FontAwesome for minimal icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --color-primary: #F7F4EE;
+            --color-secondary: #292522;
+            --color-accent: #B86B4B;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: var(--color-primary);
+            color: var(--color-secondary);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1, h2, h3, h4, .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #F7F4EE;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #A79C91;
+            border-radius: 3px;
+        }
+
+        /* Subtle grain texture overlay */
+        .grain-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+
+        .fade-in {
+            animation: fadeIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Hide scrollbars for horizontal carousels */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-primary text-secondary selection:bg-accent selection:text-white">
+
+    <div class="grain-overlay"></div>
+
+    <!-- Announcement Bar -->
+    <div class="bg-secondary text-primary text-xs tracking-widest text-center py-2 px-4 font-body uppercase font-medium flex items-center justify-center gap-2">
+        <span>Complimentary Express Shipping on Orders Above ₹999</span>
+        <span class="opacity-40">|</span>
+        <span class="hidden sm:inline">Use Code: SNEHAJOURNEY for 10% Off Your First Order</span>
+    </div>
+
+    <!-- Sticky Header -->
+    <header id="site-header" class="sticky top-0 z-40 bg-primary/90 backdrop-blur-md border-b border-secondary/10 transition-all duration-300">
+        <div class="max-w-[1440px] mx-auto px-6 h-20 flex items-center justify-between">
+            <!-- Mobile Menu Trigger -->
+            <button onclick="toggleMobileMenu()" class="lg:hidden text-secondary p-2 -ml-2 text-lg focus:outline-none">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium tracking-wide">
+                <a href="#shop" onclick="router('shop')" class="hover:text-accent transition-colors pb-1 border-b border-transparent hover:border-accent">Shop</a>
+                <a href="#collections" onclick="router('collections')" class="hover:text-accent transition-colors pb-1 border-b border-transparent hover:border-accent">Collections</a>
+                <a href="#new-arrivals" onclick="router('new-arrivals')" class="hover:text-accent transition-colors pb-1 border-b border-transparent hover:border-accent">New Arrivals</a>
+                <a href="#best-sellers" onclick="router('best-sellers')" class="hover:text-accent transition-colors pb-1 border-b border-transparent hover:border-accent">Best Sellers</a>
+                <a href="#services" onclick="router('services')" class="hover:text-accent transition-colors pb-1 border-b border-transparent hover:border-accent">Services</a>
+                <a href="#journal" onclick="router('journal')" class="hover:text-accent transition-colors pb-1 border-b border-transparent hover:border-accent">Journal</a>
+            </nav>
+
+            <!-- Centered Brand Logo -->
+            <div class="absolute left-1/2 -translate-x-1/2 text-center cursor-pointer" onclick="router('home')">
+                <h1 class="font-display text-2xl md:text-3xl tracking-[0.25em] font-semibold text-secondary">SNEHA</h1>
+                <p class="text-[9px] tracking-[0.3em] uppercase text-mutedTaupe hidden sm:block">Comfort, Crafted Beautifully.</p>
+            </div>
+
+            <!-- Right Icons -->
+            <div class="flex items-center space-x-5 text-sm">
+                <button onclick="openSearch()" class="hover:text-accent transition-colors p-2" title="Search">
+                    <i class="fa-solid fa-magnifying-glass text-base"></i>
+                </button>
+                <button onclick="router('wishlist')" class="hover:text-accent transition-colors p-2 relative hidden sm:block" title="Wishlist">
+                    <i class="fa-regular fa-heart text-base"></i>
+                    <span id="wishlist-badge" class="absolute top-1 right-1 bg-accent text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold hidden">0</span>
+                </button>
+                <button onclick="router('account')" class="hover:text-accent transition-colors p-2 hidden sm:block" title="Account">
+                    <i class="fa-regular fa-user text-base"></i>
+                </button>
+                <button onclick="toggleCartDrawer()" class="hover:text-accent transition-colors p-2 relative" title="Cart">
+                    <i class="fa-solid fa-bag-shopping text-base"></i>
+                    <span id="cart-badge" class="absolute top-1 right-1 bg-accent text-white text-[10px] w-4 h-4 rounded-full flex items-center justify-center font-bold hidden">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="fixed inset-0 z-50 bg-secondary/60 backdrop-blur-sm hidden transition-opacity duration-300">
+        <div class="absolute left-0 top-0 bottom-0 w-[80%] max-w-[360px] bg-primary p-8 flex flex-col justify-between shadow-2xl transform -translate-x-full transition-transform duration-300" id="mobile-menu-panel">
+            <div>
+                <div class="flex items-center justify-between pb-6 border-b border-secondary/10 mb-8">
+                    <span class="font-display text-xl tracking-widest font-semibold">SNEHA</span>
+                    <button onclick="toggleMobileMenu()" class="text-secondary p-2 text-lg">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <nav class="flex flex-col space-y-6 text-lg font-medium font-display">
+                    <a href="#shop" onclick="router('shop'); toggleMobileMenu();" class="hover:text-accent transition-colors">Shop All</a>
+                    <a href="#collections" onclick="router('collections'); toggleMobileMenu();" class="hover:text-accent transition-colors">Collections</a>
+                    <a href="#new-arrivals" onclick="router('new-arrivals'); toggleMobileMenu();" class="hover:text-accent transition-colors">New Arrivals</a>
+                    <a href="#best-sellers" onclick="router('best-sellers'); toggleMobileMenu();" class="hover:text-accent transition-colors">Best Sellers</a>
+                    <a href="#services" onclick="router('services'); toggleMobileMenu();" class="hover:text-accent transition-colors">Services</a>
+                    <a href="#journal" onclick="router('journal'); toggleMobileMenu();" class="hover:text-accent transition-colors">Journal</a>
+                    <a href="#about" onclick="router('about'); toggleMobileMenu();" class="hover:text-accent transition-colors">About SNEHA</a>
+                    <a href="#contact" onclick="router('contact'); toggleMobileMenu();" class="hover:text-accent transition-colors">Contact</a>
+                </nav>
+            </div>
+            <div class="pt-6 border-t border-secondary/10 flex items-center justify-between text-sm">
+                <button onclick="router('wishlist'); toggleMobileMenu();" class="flex items-center gap-2">
+                    <i class="fa-regular fa-heart"></i> Wishlist (<span id="mobile-wishlist-count">0</span>)
+                </button>
+                <button onclick="router('account'); toggleMobileMenu();" class="flex items-center gap-2">
+                    <i class="fa-regular fa-user"></i> Account
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Cart Drawer -->
+    <div id="cart-drawer" class="fixed inset-0 z-50 bg-secondary/60 backdrop-blur-sm hidden transition-opacity duration-300 flex justify-end">
+        <div class="w-full max-w-[440px] bg-primary h-full flex flex-col justify-between shadow-2xl transform translate-x-full transition-transform duration-300" id="cart-drawer-panel">
+            <div class="p-6 border-b border-secondary/10 flex items-center justify-between">
+                <h3 class="font-display text-xl tracking-wide font-medium">Your Shopping Bag (<span id="cart-count-header">0</span>)</h3>
+                <button onclick="toggleCartDrawer()" class="p-2 text-secondary hover:text-accent">
+                    <i class="fa-solid fa-xmark text-lg"></i>
+                </button>
+            </div>
+            
+            <!-- Cart Items Area -->
+            <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-6 divide-y divide-secondary/5">
+                <!-- Dynamically populated -->
+            </div>
+
+            <!-- Cart Footer -->
+            <div class="p-6 border-t border-secondary/10 bg-white/40">
+                <div class="flex justify-between items-center mb-4 text-sm font-medium">
+                    <span>Subtotal</span>
+                    <span id="cart-subtotal" class="font-display text-lg">₹0</span>
+                </div>
+                <p class="text-xs text-mutedTaupe mb-6">Taxes & shipping calculated at checkout. Free shipping unlocked!</p>
+                <div class="space-y-3">
+                    <button onclick="router('checkout'); toggleCartDrawer();" class="w-full bg-secondary text-primary py-4 text-center font-medium uppercase tracking-widest text-xs hover:bg-accent transition-colors rounded-sm">
+                        Proceed to Checkout
+                    </button>
+                    <button onclick="router('cart'); toggleCartDrawer();" class="w-full bg-transparent border border-secondary text-secondary py-3 text-center font-medium uppercase tracking-widest text-xs hover:bg-secondary hover:text-primary transition-colors rounded-sm">
+                        View Full Bag
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Overlay -->
+    <div id="search-overlay" class="fixed inset-0 z-50 bg-primary/95 backdrop-blur-md hidden flex flex-col p-6 md:p-16 transition-opacity duration-300">
+        <div class="max-w-4xl mx-auto w-full">
+            <div class="flex justify-between items-center mb-12">
+                <span class="font-display tracking-[0.2em] text-sm uppercase text-mutedTaupe">Search Catalog</span>
+                <button onclick="closeSearch()" class="text-2xl p-2 hover:text-accent"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="relative mb-8">
+                <input type="text" id="global-search-input" oninput="handleSearchInput(this.value)" placeholder="What are you looking for? (e.g. Linen, Bedsheet, Pillows)..." class="w-full bg-transparent border-b-2 border-secondary text-2xl md:text-4xl font-display py-4 focus:outline-none focus:border-accent placeholder:text-mutedTaupe/50">
+                <button class="absolute right-0 top-1/2 -translate-y-1/2 text-2xl"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            <div class="mb-8">
+                <p class="text-xs font-semibold uppercase tracking-widest text-mutedTaupe mb-4">Suggested Searches</p>
+                <div class="flex flex-wrap gap-3">
+                    <button onclick="quickSearch('Bedsheets')" class="bg-softBeige/60 hover:bg-secondary hover:text-primary px-4 py-2 text-xs rounded-full transition-colors">Bedsheets</button>
+                    <button onclick="quickSearch('Linen')" class="bg-softBeige/60 hover:bg-secondary hover:text-primary px-4 py-2 text-xs rounded-full transition-colors">Linen Cloud</button>
+                    <button onclick="quickSearch('Pillows')" class="bg-softBeige/60 hover:bg-secondary hover:text-primary px-4 py-2 text-xs rounded-full transition-colors">Pillows & Cushions</button>
+                    <button onclick="quickSearch('Blankets')" class="bg-softBeige/60 hover:bg-secondary hover:text-primary px-4 py-2 text-xs rounded-full transition-colors">Blankets & Throws</button>
+                    <button onclick="quickSearch('Décor')" class="bg-softBeige/60 hover:bg-secondary hover:text-primary px-4 py-2 text-xs rounded-full transition-colors">Bedroom Décor</button>
+                </div>
+            </div>
+            <div id="search-live-results" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-h-[50vh] overflow-y-auto no-scrollbar">
+                <!-- Live search results rendered here -->
+            </div>
+        </div>
+    </div>
+
+    <main id="app-container" class="min-h-screen">
+        <!-- Dynamically rendered views (Home, Shop, Product Detail, Cart, Checkout, Journal, About, etc.) -->
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-secondary text-primary pt-20 pb-12 border-t border-secondary/20">
+        <div class="max-w-[1440px] mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 pb-16 border-b border-primary/10">
+                <div class="lg:col-span-2">
+                    <h2 class="font-display text-3xl tracking-[0.25em] font-medium mb-4">SNEHA</h2>
+                    <p class="text-sm text-primary/70 max-w-sm leading-relaxed mb-6">
+                        Thoughtfully crafted bedding and home-comfort essentials designed to turn everyday routines into moments worth slowing down for.
+                    </p>
+                    <p class="text-xs uppercase tracking-widest text-accent font-semibold">“Comfort, Crafted Beautifully.”</p>
+                </div>
+                <div>
+                    <h4 class="text-xs uppercase tracking-[0.2em] font-semibold mb-6 text-primary/50">Shop</h4>
+                    <ul class="space-y-3 text-sm text-primary/80">
+                        <li><a href="#shop" onclick="router('shop')" class="hover:text-accent transition-colors">All Bedding</a></li>
+                        <li><a href="#category" onclick="router('category', 'Bedsheets')" class="hover:text-accent transition-colors">Bedsheets</a></li>
+                        <li><a href="#category" onclick="router('category', 'Pillows')" class="hover:text-accent transition-colors">Pillows</a></li>
+                        <li><a href="#category" onclick="router('category', 'Cushions')" class="hover:text-accent transition-colors">Cushions</a></li>
+                        <li><a href="#category" onclick="router('category', 'Blankets')" class="hover:text-accent transition-colors">Blankets & Throws</a></li>
+                        <li><a href="#new-arrivals" onclick="router('new-arrivals')" class="hover:text-accent transition-colors">New Arrivals</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xs uppercase tracking-[0.2em] font-semibold mb-6 text-primary/50">About</h4>
+                    <ul class="space-y-3 text-sm text-primary/80">
+                        <li><a href="#about" onclick="router('about')" class="hover:text-accent transition-colors">Our Story</a></li>
+                        <li><a href="#journal" onclick="router('journal')" class="hover:text-accent transition-colors">Journal</a></li>
+                        <li><a href="#services" onclick="router('services')" class="hover:text-accent transition-colors">Services</a></li>
+                        <li><a href="#faq" onclick="router('faq')" class="hover:text-accent transition-colors">FAQ</a></li>
+                        <li><a href="#contact" onclick="router('contact')" class="hover:text-accent transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xs uppercase tracking-[0.2em] font-semibold mb-6 text-primary/50">Connect</h4>
+                    <ul class="space-y-3 text-sm text-primary/80">
+                        <li><a href="#" class="hover:text-accent transition-colors">Instagram</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Pinterest</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Facebook</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Privacy Policy</a></li>
+                        <li><a href="#" class="hover:text-accent transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-primary/50 gap-4">
+                <p>© 2026 SNEHA Lifestyle Private Limited. All Rights Reserved.</p>
+                <div class="flex space-x-6">
+                    <span>Designed for Modern Luxury Living</span>
+                    <span>•</span>
+                    <span>Crafted with Care</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        /* Product Database with Real Images Provided */
+        const PRODUCTS = [
+            {
+                id: "sn-01",
+                name: "SNEHA Sunlit Lemon Haven Bedsheet",
+                category: "Bedsheets",
+                price: 2499,
+                originalPrice: 3299,
+                discount: 24,
+                rating: 4.9,
+                reviews: 128,
+                images: [
+                    "https://i.ibb.co/qFsfgPnQ/Sunlit-Lemon-Haven-Bedroom.png",
+                    "https://i.ibb.co/vCWCpV4z/PRODUCT-IMAGE-1.png",
+                    "https://i.ibb.co/s9chVZK0/PRODUCT-IMAGE-2.png"
+                ],
+                colors: ["Lemon Ivory", "Warm Sand", "Sage"],
+                sizes: ["Queen", "King", "Super King"],
+                material: "100% Organic Cotton Percale",
+                careInstructions: "Gentle machine wash in cold water. Tumble dry low. Do not bleach.",
+                description: "Infused with the gentle warmth of morning sunlight, this botanical set brings natural serenity into your private sanctuary. Breathable, crisp, and exceptionally soft.",
+                badge: "Best Seller",
+                inStock: true
+            },
+            {
+                id: "sn-02",
+                name: "SNEHA Cozy Teal Botanical Set",
+                category: "Bedsheets",
+                price: 2799,
+                originalPrice: 3599,
+                discount: 22,
+                rating: 4.8,
+                reviews: 94,
+                images: [
+                    "https://i.ibb.co/JjGT7gmp/Cozy-Teal-Botanical-Bedroom.png",
+                    "https://i.ibb.co/KcH2Qz1j/PRODUCT-IMAGE-3.png",
+                    "https://i.ibb.co/yTK0cK0/PRODUCT-IMAGE-4.png"
+                ],
+                colors: ["Teal Frost", "Deep Ocean", "Charcoal"],
+                sizes: ["Queen", "King"],
+                material: "French Flax Linen & Cotton",
+                careInstructions: "Wash dark colors separately. Line dry recommended for linen texture.",
+                description: "Deep, tranquil teal undertones paired with botanical grace. Designed for deep, restorative sleep in an environment of refined calm.",
+                badge: "New Arrival",
+                inStock: true
+            },
+            {
+                id: "sn-03",
+                name: "SNEHA Sunny Mustard Floral Retreat",
+                category: "Bedsheets",
+                price: 2199,
+                originalPrice: 2899,
+                discount: 24,
+                rating: 4.9,
+                reviews: 112,
+                images: [
+                    "https://i.ibb.co/0pDkrkzx/Sunny-Mustard-Floral-Bedroom.png",
+                    "https://i.ibb.co/vCWCpV4z/PRODUCT-IMAGE-1.png",
+                    "https://i.ibb.co/s9chVZK0/PRODUCT-IMAGE-2.png"
+                ],
+                colors: ["Mustard Gold", "Cream"],
+                sizes: ["Single", "Queen", "King"],
+                material: "Supima Cotton Satin (400 TC)",
+                careInstructions: "Machine wash warm. Warm iron if needed.",
+                description: "Rich mustard floral patterns blooming over soft ivory cream cotton. Adds an effortless, sun-kissed warmth to any bedroom interior.",
+                badge: "Trending",
+                inStock: true
+            },
+            {
+                id: "sn-04",
+                name: "SNEHA Elegant Charcoal Floral Suite",
+                category: "Bedsheets",
+                price: 2999,
+                originalPrice: 3899,
+                discount: 23,
+                rating: 5.0,
+                reviews: 156,
+                images: [
+                    "https://i.ibb.co/TqgYhg49/Elegant-Charcoal-Floral-Bedroom.png",
+                    "https://i.ibb.co/KcH2Qz1j/PRODUCT-IMAGE-3.png",
+                    "https://i.ibb.co/yTK0cK0/PRODUCT-IMAGE-4.png"
+                ],
+                colors: ["Charcoal", "Slate", "Silver"],
+                sizes: ["Queen", "King", "California King"],
+                material: "Pure Bamboo Silk Blend",
+                careInstructions: "Dry clean preferred or delicate machine wash cold.",
+                description: "Sophisticated charcoal tones meet exquisite floral artistry. Unmatched smoothness that gently cools throughout the night.",
+                badge: "Editor's Pick",
+                inStock: true
+            },
+            {
+                id: "sn-05",
+                name: "SNEHA Cozy Cream Floral Retreat",
+                category: "Bedsheets",
+                price: 1899,
+                originalPrice: 2499,
+                discount: 24,
+                rating: 4.7,
+                reviews: 83,
+                images: [
+                    "https://i.ibb.co/1GqNLft4/Cozy-Cream-Floral-Bedroom-Retreat.png",
+                    "https://i.ibb.co/qFsfgPnQ/Sunlit-Lemon-Haven-Bedroom.png",
+                    "https://i.ibb.co/vCWCpV4z/PRODUCT-IMAGE-1.png"
+                ],
+                colors: ["Warm Cream", "Ivory"],
+                sizes: ["Queen", "King"],
+                material: "Brushed Micro-Cotton",
+                careInstructions: "Machine wash normal. Tumble dry medium.",
+                description: "Subtle cream motifs on an ultra-plush fabric base. The definition of everyday comfort and minimalist grace.",
+                badge: "",
+                inStock: true
+            },
+            {
+                id: "sn-06",
+                name: "SNEHA Lavender Floral Sanctuary",
+                category: "Bedsheets",
+                price: 2399,
+                originalPrice: 3099,
+                discount: 22,
+                rating: 4.9,
+                reviews: 142,
+                images: [
+                    "https://i.ibb.co/pBtR8P81/Lavender-Floral-Bedroom-Retreat.png",
+                    "https://i.ibb.co/s9chVZK0/PRODUCT-IMAGE-2.png",
+                    "https://i.ibb.co/KcH2Qz1j/PRODUCT-IMAGE-3.png"
+                ],
+                colors: ["Soft Lavender", "Muted Lilac"],
+                sizes: ["Queen", "King"],
+                material: "Organic Cotton Sateen",
+                careInstructions: "Wash with similar colors. Gentle cycle.",
+                description: "Calming lavender hues designed to induce relaxation and peaceful sleep. Crafted with sustainably sourced organic cotton fibers.",
+                badge: "Best Seller",
+                inStock: true
+            },
+            {
+                id: "sn-07",
+                name: "SNEHA Sage Green Botanical Suite",
+                category: "Bedsheets",
+                price: 2599,
+                originalPrice: 3399,
+                discount: 23,
+                rating: 4.9,
+                reviews: 167,
+                images: [
+                    "https://i.ibb.co/5g3nhD2g/Sage-Green-Botanical-Bedroom-Retreat.png",
+                    "https://i.ibb.co/yTK0cK0/PRODUCT-IMAGE-4.png",
+                    "https://i.ibb.co/qFsfgPnQ/Sunlit-Lemon-Haven-Bedroom.png"
+                ],
+                colors: ["Sage Green", "Eucalyptus", "Moss"],
+                sizes: ["Queen", "King"],
+                material: "Tencel Lyocell & Cotton",
+                careInstructions: "Machine wash cold. Line dry or tumble dry low.",
+                description: "Earth-inspired sage tones that bring the quiet grounding of nature directly into your bedroom aesthetic.",
+                badge: "Best Seller",
+                inStock: true
+            },
+            {
+                id: "sn-08",
+                name: "SNEHA Cloud-Weight Down Pillow Set",
+                category: "Pillows",
+                price: 1299,
+                originalPrice: 1799,
+                discount: 27,
+                rating: 4.8,
+                reviews: 210,
+                images: [
+                    "https://i.ibb.co/vCWCpV4z/PRODUCT-IMAGE-1.png",
+                    "https://i.ibb.co/s9chVZK0/PRODUCT-IMAGE-2.png"
+                ],
+                colors: ["Crisp White", "Ivory"],
+                sizes: ["Standard", "King Size"],
+                material: "Microfiber Down-Alternative Fill with Cotton Shell",
+                careInstructions: "Fluff daily. Machine wash gentle with tennis balls.",
+                description: "Plush, supportive, and hypoallergenic pillows designed for optimal neck alignment and cloud-like head support.",
+                badge: "Essential",
+                inStock: true
+            },
+            {
+                id: "sn-09",
+                name: "SNEHA Terracotta Velvet Cushion",
+                category: "Cushions",
+                price: 899,
+                originalPrice: 1199,
+                discount: 25,
+                rating: 4.7,
+                reviews: 75,
+                images: [
+                    "https://i.ibb.co/s9chVZK0/PRODUCT-IMAGE-2.png",
+                    "https://i.ibb.co/KcH2Qz1j/PRODUCT-IMAGE-3.png"
+                ],
+                colors: ["Terracotta", "Warm Clay", "Espresso"],
+                sizes: ["18x18 inch", "24x24 inch"],
+                material: "Cotton Velvet with Feather Insert",
+                careInstructions: "Spot clean only.",
+                description: "Rich terracotta texture adding a warm chromatic accent to neutral bedding arrangements.",
+                badge: "",
+                inStock: true
+            },
+            {
+                id: "sn-10",
+                name: "SNEHA Cashmere-Touch Woven Throw",
+                category: "Blankets",
+                price: 3499,
+                originalPrice: 4499,
+                discount: 22,
+                rating: 5.0,
+                reviews: 89,
+                images: [
+                    "https://i.ibb.co/KcH2Qz1j/PRODUCT-IMAGE-3.png",
+                    "https://i.ibb.co/yTK0cK0/PRODUCT-IMAGE-4.png"
+                ],
+                colors: ["Oatmeal", "Warm Taupe", "Cream"],
+                sizes: ["Standard Throw (50x60\")"],
+                material: "Recycled Cashmere & Merino Wool Blend",
+                careInstructions: "Dry clean only.",
+                description: "Exquisitely soft, lightweight yet wonderfully warm throw blanket for cozy evening reading or aesthetic bed layering.",
+                badge: "Luxury",
+                inStock: true
+            },
+            {
+                id: "sn-11",
+                name: "SNEHA Minimalist Ceramic Bedside Lamp",
+                category: "Décor",
+                price: 2199,
+                originalPrice: 2899,
+                discount: 24,
+                rating: 4.8,
+                reviews: 54,
+                images: [
+                    "https://i.ibb.co/yTK0cK0/PRODUCT-IMAGE-4.png",
+                    "https://i.ibb.co/qFsfgPnQ/Sunlit-Lemon-Haven-Bedroom.png"
+                ],
+                colors: ["Matte Ivory", "Charcoal"],
+                sizes: ["One Size"],
+                material: "Hand-Thrown Ceramic & Linen Shade",
+                careInstructions: "Wipe clean with a soft dry cloth.",
+                description: "Emits a warm, diffused glow designed to create a serene evening ambience in any modern bedroom.",
+                badge: "",
+                inStock: true
+            },
+            {
+                id: "sn-12",
+                name: "SNEHA Pure Linen Duvet Cover Set",
+                category: "Bedsheets",
+                price: 4299,
+                originalPrice: 5499,
+                discount: 21,
+                rating: 4.9,
+                reviews: 132,
+                images: [
+                    "https://i.ibb.co/5g3nhD2g/Sage-Green-Botanical-Bedroom-Retreat.png",
+                    "https://i.ibb.co/JjGT7gmp/Cozy-Teal-Botanical-Bedroom.png"
+                ],
+                colors: ["Natural Flax", "Cream", "Charcoal"],
+                sizes: ["Queen", "King"],
+                material: "100% Belgian Flax Linen",
+                careInstructions: "Machine wash cold on gentle. Do not iron (embrace the relaxed linen look).",
+                description: "Pre-washed Belgian flax linen that gets softer with every wash. Exceptional breathability across all seasons.",
+                badge: "Best Seller",
+                inStock: true
+            }
+        ];
+
+        /* Application State */
+        let cart = JSON.parse(localStorage.getItem('sneha_cart')) || [];
+        let wishlist = JSON.parse(localStorage.getItem('sneha_wishlist')) || [];
+        let currentRoute = 'home';
+        let currentRouteParam = null;
+
+        /* Save to localStorage */
+        function saveState() {
+            localStorage.setItem('sneha_cart', JSON.stringify(cart));
+            localStorage.setItem('sneha_wishlist', JSON.stringify(wishlist));
+            updateBadges();
+        }
+
+        function updateBadges() {
+            const cartCount = cart.reduce((sum, item) => sum + item.qty, 0);
+            const wishCount = wishlist.length;
+
+            const cartBadge = document.getElementById('cart-badge');
+            const mobileCartCount = document.getElementById('cart-count-header');
+            if (cartCount > 0) {
+                cartBadge.innerText = cartCount;
+                cartBadge.classList.remove('hidden');
+            } else {
+                cartBadge.classList.add('hidden');
+            }
+
+            const wishBadge = document.getElementById('wishlist-badge');
+            const mobileWishBadge = document.getElementById('mobile-wishlist-count');
+            if (wishCount > 0) {
+                wishBadge.innerText = wishCount;
+                wishBadge.classList.remove('hidden');
+                if(mobileWishBadge) mobileWishBadge.innerText = wishCount;
+            } else {
+                wishBadge.classList.add('hidden');
+                if(mobileWishBadge) mobileWishBadge.innerText = '0';
+            }
+        }
+
+        /* Router / View Controller */
+        function router(route, param = null) {
+            currentRoute = route;
+            currentRouteParam = param;
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            renderView();
+            updateBadges();
+        }
+
+        function renderView() {
+            const container = document.getElementById('app-container');
+            container.innerHTML = '';
+
+            switch(currentRoute) {
+                case 'home':
+                    container.innerHTML = renderHome();
+                    break;
+                case 'shop':
+                    container.innerHTML = renderShop();
+                    break;
+                case 'category':
+                    container.innerHTML = renderCategory(currentRouteParam);
+                    break;
+                case 'product':
+                    container.innerHTML = renderProductDetail(currentRouteParam);
+                    break;
+                case 'collections':
+                    container.innerHTML = renderCollections();
+                    break;
+                case 'new-arrivals':
+                    container.innerHTML = renderNewArrivals();
+                    break;
+                case 'best-sellers':
+                    container.innerHTML = renderBestSellers();
+                    break;
+                case 'services':
+                    container.innerHTML = renderServices();
+                    break;
+                case 'about':
+                    container.innerHTML = renderAbout();
+                    break;
+                case 'journal':
+                    container.innerHTML = renderJournal();
+                    break;
+                case 'article':
+                    container.innerHTML = renderJournalArticle(currentRouteParam);
+                    break;
+                case 'wishlist':
+                    container.innerHTML = renderWishlist();
+                    break;
+                case 'cart':
+                    container.innerHTML = renderCart();
+                    break;
+                case 'checkout':
+                    container.innerHTML = renderCheckout();
+                    break;
+                case 'account':
+                    container.innerHTML = renderAccount();
+                    break;
+                case 'contact':
+                    container.innerHTML = renderContact();
+                    break;
+                case 'faq':
+                    container.innerHTML = renderFaq();
+                    break;
+                case '404':
+                default:
+                    container.innerHTML = render404();
+                    break;
+            }
+            // Re-bind interactive elements if needed
+            updateCartDrawerHTML();
+        }
+
+        function renderHome() {
+            return `
+            <!-- SECTION 01: HERO -->
+            <section class="relative h-[92vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+                <div class="absolute inset-0 z-0">
+                    <img src="https://i.ibb.co/qFsfgPnQ/Sunlit-Lemon-Haven-Bedroom.png" alt="SNEHA Luxury Bedroom" class="w-full h-full object-cover object-center scale-105 transition-transform duration-[2000ms]">
+                    <div class="absolute inset-0 bg-gradient-to-t from-secondary/70 via-secondary/20 to-transparent"></div>
+                </div>
+                <div class="relative z-10 text-center max-w-4xl mx-auto px-6 text-primary fade-in">
+                    <span class="text-xs uppercase tracking-[0.4em] font-medium mb-4 inline-block text-primary/80">SNEHA Lifestyle</span>
+                    <h1 class="font-display text-5xl md:text-8xl tracking-tight mb-6 font-normal">Comfort, Crafted Beautifully.</h1>
+                    <p class="text-lg md:text-xl font-body font-light text-primary/90 max-w-2xl mx-auto mb-10 leading-relaxed">
+                        Thoughtfully designed bedding and home essentials for spaces that feel like you.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <button onclick="router('shop')" class="w-full sm:w-auto bg-primary text-secondary px-8 py-4 text-xs font-medium uppercase tracking-[0.2em] hover:bg-accent hover:text-white transition-all rounded-xs shadow-lg">
+                            Shop Bedding
+                        </button>
+                        <button onclick="router('collections')" class="w-full sm:w-auto bg-transparent border border-primary/60 text-primary px-8 py-4 text-xs font-medium uppercase tracking-[0.2em] hover:bg-primary hover:text-secondary transition-all rounded-xs">
+                            Explore Collections
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 02: TRUST / BRAND MESSAGE -->
+            <section class="bg-secondary text-primary py-12 px-6">
+                <div class="max-w-[1440px] mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                    <div class="flex flex-col items-center">
+                        <i class="fa-solid fa-feather text-2xl text-accent mb-3"></i>
+                        <h4 class="font-display text-lg mb-1">Thoughtfully Designed</h4>
+                        <p class="text-xs text-primary/60">Every detail considered for calm spaces.</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <i class="fa-solid fa-seedling text-2xl text-accent mb-3"></i>
+                        <h4 class="font-display text-lg mb-1">Premium Fabrics</h4>
+                        <p class="text-xs text-primary/60">Pure organic cotton, linen, and silk blends.</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <i class="fa-solid fa-house-chimney text-2xl text-accent mb-3"></i>
+                        <h4 class="font-display text-lg mb-1">Everyday Living</h4>
+                        <p class="text-xs text-primary/60">Durability meets exquisite luxury.</p>
+                    </div>
+                    <div class="flex flex-col items-center">
+                        <i class="fa-solid fa-rotate-left text-2xl text-accent mb-3"></i>
+                        <h4 class="font-display text-lg mb-1">Easy Returns</h4>
+                        <p class="text-xs text-primary/60">Hassle-free 30-day return policy.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 03: SHOP BY CATEGORY -->
+            <section class="py-24 px-6 max-w-[1440px] mx-auto">
+                <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+                    <div>
+                        <span class="text-xs uppercase tracking-[0.3em] text-mutedTaupe block mb-2">Curated Categories</span>
+                        <h2 class="font-display text-3xl md:text-5xl font-normal">Explore by Category</h2>
+                    </div>
+                    <button onclick="router('shop')" class="mt-4 md:mt-0 text-xs font-semibold uppercase tracking-widest hover:text-accent flex items-center gap-2 group">
+                        View All Categories <i class="fa-solid fa-arrow-right transition-transform group-hover:translate-x-1"></i>
+                    </button>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    ${renderCategoryCard('Bedsheets', 'https://i.ibb.co/JjGT7gmp/Cozy-Teal-Botanical-Bedroom.png', 'Pure Cotton & Linen')}
+                    ${renderCategoryCard('Pillows', 'https://i.ibb.co/vCWCpV4z/PRODUCT-IMAGE-1.png', 'Cloud-Weight Support')}
+                    ${renderCategoryCard('Cushions', 'https://i.ibb.co/s9chVZK0/PRODUCT-IMAGE-2.png', 'Velvet & Cotton Accents')}
+                    ${renderCategoryCard('Blankets', 'https://i.ibb.co/KcH2Qz1j/PRODUCT-IMAGE-3.png', 'Cashmere & Wool Throws')}
+                </div>
+            </section>
+
+            <!-- SECTION 04: FEATURED COLLECTION -->
+            <section class="py-16 px-6 max-w-[1440px] mx-auto">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center bg-softBeige/30 p-8 md:p-16 rounded-md">
+                    <div class="overflow-hidden rounded-sm group">
+                        <img src="https://i.ibb.co/5g3nhD2g/Sage-Green-Botanical-Bedroom-Retreat.png" alt="Sage Collection" class="w-full h-[450px] object-cover group-hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <div class="space-y-6">
+                        <span class="text-xs uppercase tracking-[0.3em] text-accent font-medium">New Botanical Collection</span>
+                        <h2 class="font-display text-4xl md:text-5xl leading-tight">“Made for Beautiful Mornings.”</h2>
+                        <p class="text-secondary/80 leading-relaxed font-body">
+                            Immerse your bedroom in the calm grounding tones of our new sage and botanical series. Crafted from sustainable Tencel-cotton blend that naturally adapts to your body temperature.
+                        </p>
+                        <button onclick="router('category', 'Bedsheets')" class="bg-secondary text-primary px-8 py-4 text-xs font-medium uppercase tracking-[0.2em] hover:bg-accent transition-colors rounded-xs inline-block">
+                            Explore Collection
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 05: BEST SELLERS CAROUSEL -->
+            <section class="py-24 px-6 max-w-[1440px] mx-auto">
+                <div class="flex items-center justify-between mb-12">
+                    <div>
+                        <span class="text-xs uppercase tracking-[0.3em] text-mutedTaupe block mb-2">Most Loved</span>
+                        <h2 class="font-display text-3xl md:text-5xl font-normal">Best Sellers</h2>
+                    </div>
+                    <button onclick="router('best-sellers')" class="text-xs font-semibold uppercase tracking-widest hover:text-accent">
+                        View All Best Sellers
+                    </button>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    ${PRODUCTS.slice(0, 4).map(p => renderProductCard(p)).join('')}
+                </div>
+            </section>
+
+            <!-- SECTION 06: COLLECTION EDITORIAL -->
+            <section class="relative py-32 px-6 my-12 flex items-center justify-center overflow-hidden">
+                <div class="absolute inset-0 z-0">
+                    <img src="https://i.ibb.co/TqgYhg49/Elegant-Charcoal-Floral-Bedroom.png" alt="Editorial Bedroom" class="w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-secondary/50"></div>
+                </div>
+                <div class="relative z-10 text-center max-w-3xl mx-auto text-primary">
+                    <h2 class="font-display text-4xl md:text-6xl mb-6">“Your Bedroom.<br>Your Quiet Place.”</h2>
+                    <p class="text-lg font-light text-primary/90 mb-10 leading-relaxed">
+                        Designed to turn everyday routines into moments worth slowing down for.
+                    </p>
+                    <button onclick="router('shop')" class="bg-primary text-secondary px-8 py-4 text-xs font-medium uppercase tracking-[0.2em] hover:bg-accent hover:text-white transition-all rounded-xs">
+                        Discover SNEHA
+                    </button>
+                </div>
+            </section>
+
+            <!-- SECTION 07: SERVICES -->
+            <section class="py-24 px-6 max-w-[1440px] mx-auto">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-xs uppercase tracking-[0.3em] text-mutedTaupe block mb-2">Elevated Services</span>
+                    <h2 class="font-display text-3xl md:text-5xl">Designed Around You</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white/60 p-8 rounded-md border border-secondary/10 text-center hover:border-accent transition-colors">
+                        <i class="fa-solid fa-wand-magic-sparkles text-3xl text-accent mb-4"></i>
+                        <h3 class="font-display text-xl mb-2">Personal Styling</h3>
+                        <p class="text-sm text-secondary/70">Expert interior recommendations tailored to your bedroom colour palette.</p>
+                    </div>
+                    <div class="bg-white/60 p-8 rounded-md border border-secondary/10 text-center hover:border-accent transition-colors">
+                        <i class="fa-solid fa-gift text-3xl text-accent mb-4"></i>
+                        <h3 class="font-display text-xl mb-2">Signature Gift Wrapping</h3>
+                        <p class="text-sm text-secondary/70">Unbox luxury with our signature ribbon-bound keepsake packaging.</p>
+                    </div>
+                    <div class="bg-white/60 p-8 rounded-md border border-secondary/10 text-center hover:border-accent transition-colors">
+                        <i class="fa-solid fa-shield-heart text-3xl text-accent mb-4"></i>
+                        <h3 class="font-display text-xl mb-2">Lifetime Quality Promise</h3>
+                        <p class="text-sm text-secondary/70">Rigorous quality testing ensuring fade-resistant softness for years.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 08: PRODUCT STORY -->
+            <section class="py-24 bg-softBeige/20 px-6">
+                <div class="max-w-[1440px] mx-auto">
+                    <div class="text-center max-w-2xl mx-auto mb-16">
+                        <span class="text-xs uppercase tracking-[0.3em] text-mutedTaupe block mb-2">The Craftsmanship</span>
+                        <h2 class="font-display text-3xl md:text-5xl">How SNEHA is Created</h2>
+                    </div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                        <div class="p-6 bg-white/40 border border-secondary/10 rounded-sm">
+                            <span class="font-display text-4xl text-accent/50 block mb-4">01</span>
+                            <h4 class="font-display text-xl mb-2">SELECT</h4>
+                            <p class="text-sm text-secondary/70">Hand-selected long-staple organic cotton and premium flax fibers.</p>
+                        </div>
+                        <div class="p-6 bg-white/40 border border-secondary/10 rounded-sm">
+                            <span class="font-display text-4xl text-accent/50 block mb-4">02</span>
+                            <h4 class="font-display text-xl mb-2">CRAFT</h4>
+                            <p class="text-sm text-secondary/70">Thoughtful weave construction balancing breathability with plush weight.</p>
+                        </div>
+                        <div class="p-6 bg-white/40 border border-secondary/10 rounded-sm">
+                            <span class="font-display text-4xl text-accent/50 block mb-4">03</span>
+                            <h4 class="font-display text-xl mb-2">FINISH</h4>
+                            <p class="text-sm text-secondary/70">Detailed finishing washes for immediate butter-soft texture upon arrival.</p>
+                        </div>
+                        <div class="p-6 bg-white/40 border border-secondary/10 rounded-sm">
+                            <span class="font-display text-4xl text-accent/50 block mb-4">04</span>
+                            <h4 class="font-display text-xl mb-2">DELIVER</h4>
+                            <p class="text-sm text-secondary/70">Delivered in sustainable, plastic-free keepsake gift packaging.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 09: SOCIAL PROOF -->
+            <section class="py-24 px-6 max-w-[1440px] mx-auto">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-xs uppercase tracking-[0.3em] text-mutedTaupe block mb-2">Customer Testimonials</span>
+                    <h2 class="font-display text-3xl md:text-5xl">Loved in Homes Worldwide</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="bg-white/60 p-8 rounded-md border border-secondary/10 flex flex-col justify-between">
+                        <div>
+                            <div class="text-accent mb-4 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <p class="font-display italic text-lg mb-6 leading-relaxed">“Beautiful fabric, incredible softness, and the packaging felt genuinely premium. My bedroom feels like a luxury hotel suite now.”</p>
+                        </div>
+                        <p class="text-xs uppercase tracking-widest font-semibold text-mutedTaupe">— Aanya M., Mumbai</p>
+                    </div>
+                    <div class="bg-white/60 p-8 rounded-md border border-secondary/10 flex flex-col justify-between">
+                        <div>
+                            <div class="text-accent mb-4 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <p class="font-display italic text-lg mb-6 leading-relaxed">“The linen breathes so well during warm summer nights. I've washed mine 5 times and it only gets softer.”</p>
+                        </div>
+                        <p class="text-xs uppercase tracking-widest font-semibold text-mutedTaupe">— Rohan K., Bengaluru</p>
+                    </div>
+                    <div class="bg-white/60 p-8 rounded-md border border-secondary/10 flex flex-col justify-between">
+                        <div>
+                            <div class="text-accent mb-4 text-sm"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                            <p class="font-display italic text-lg mb-6 leading-relaxed">“Customer service helped me select the exact matching cushion tones for my bed. Outstanding attention to detail.”</p>
+                        </div>
+                        <p class="text-xs uppercase tracking-widest font-semibold text-mutedTaupe">— Priya S., Delhi</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 10: JOURNAL -->
+            <section class="py-24 bg-softBeige/20 px-6">
+                <div class="max-w-[1440px] mx-auto">
+                    <div class="flex items-center justify-between mb-12">
+                        <div>
+                            <span class="text-xs uppercase tracking-[0.3em] text-mutedTaupe block mb-2">Editorial Journal</span>
+                            <h2 class="font-display text-3xl md:text-5xl">Stories & Styling</h2>
+                        </div>
+                        <button onclick="router('journal')" class="text-xs font-semibold uppercase tracking-widest hover:text-accent">
+                            View All Articles
+                        </button>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        ${renderJournalCard('How to Build a Calm Bedroom Sanctuary', 'Designing spaces that soothe the nervous system after busy days.', 'https://i.ibb.co/qFsfgPnQ/Sunlit-Lemon-Haven-Bedroom.png', '1')}
+                        ${renderJournalCard('5 Ways to Style Neutral Bedding', 'Layering textures and pillow configurations like an interior designer.', 'https://i.ibb.co/1GqNLft4/Cozy-Cream-Floral-Bedroom-Retreat.png', '2')}
+                        ${renderJournalCard('Choosing the Right Bedsheet Fabric', 'Percale vs Sateen vs Linen: What is best for your sleep climate?', 'https://i.ibb.co/5g3nhD2g/Sage-Green-Botanical-Bedroom-Retreat.png', '3')}
+                    </div>
+                </div>
+            </section>
+
+            <!-- SECTION 11: NEWSLETTER -->
+            <section class="py-24 px-6 max-w-3xl mx-auto text-center">
+                <span class="text-xs uppercase tracking-[0.3em] text-mutedTaupe block mb-2">Join Our Circle</span>
+                <h2 class="font-display text-4xl md:text-5xl mb-4">Make Space for Comfort.</h2>
+                <p class="text-secondary/70 mb-8">Join the SNEHA journal for styling ideas, new collections, and thoughtful living.</p>
+                <form onsubmit="event.preventDefault(); showToast('Thank you for subscribing to SNEHA.'); this.reset();" class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+                    <input type="email" placeholder="Enter your email address..." required class="flex-1 bg-white border border-secondary/20 px-4 py-3 text-sm focus:outline-none focus:border-accent rounded-sm">
+                    <button type="submit" class="bg-secondary text-primary px-8 py-3 text-xs uppercase tracking-widest hover:bg-accent transition-colors rounded-sm">Join SNEHA</button>
+                </form>
+            </section>
+            `;
+        }
+
+        /* Helper card renderers */
+        function renderCategoryCard(title, image, subtitle) {
+            return `
+            <div onclick="router('category', '${title}')" class="group cursor-pointer relative overflow-hidden rounded-sm bg-softBeige/40 aspect-[4/5] flex flex-col justify-end p-6">
+                <div class="absolute inset-0 z-0 overflow-hidden">
+                    <img src="${image}" alt="${title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-secondary/80 via-secondary/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                </div>
+                <div class="relative z-10 text-primary">
+                    <span class="text-[10px] uppercase tracking-[0.25em] text-primary/80 mb-1 block">${subtitle}</span>
+                    <h3 class="font-display text-2xl flex items-center justify-between">
+                        ${title}
+                        <i class="fa-solid fa-arrow-right text-sm transform -translate-x-2 opacity-0 group-hover:translate-x-0 group-hover:opacity-100 transition-all"></i>
+                    </h3>
+                </div>
+            </div>
+            `;
+        }
+
+        function renderProductCard(p) {
+            const isWishlisted = wishlist.some(item => item.id === p.id);
+            return `
+            <div class="group relative flex flex-col bg-white/60 rounded-sm border border-secondary/10 overflow-hidden">
+                <div class="relative aspect-[4/5] overflow-hidden bg-softBeige/50 cursor-pointer" onclick="router('product', '${p.id}')">
+                    <img src="${p.images[0]}" alt="${p.name}" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                    ${p.badge ? `<span class="absolute top-3 left-3 bg-secondary text-primary text-[10px] uppercase tracking-widest px-2.5 py-1 rounded-xs font-semibold">${p.badge}</span>` : ''}
+                    <button onclick="event.stopPropagation(); toggleWishlist('${p.id}')" class="absolute top-3 right-3 w-9 h-9 bg-primary/90 hover:bg-primary text-secondary rounded-full flex items-center justify-center transition-colors shadow-sm">
+                        <i class="${isWishlisted ? 'fa-solid text-accent' : 'fa-regular'} fa-heart text-sm"></i>
+                    </button>
+                </div>
+                <div class="p-5 flex flex-col flex-1 justify-between">
+                    <div>
+                        <div class="flex items-center justify-between text-xs text-mutedTaupe mb-1">
+                            <span>${p.category}</span>
+                            <span class="flex items-center gap-1 text-secondary"><i class="fa-solid fa-star text-accent text-[10px]"></i> ${p.rating}</span>
+                        </div>
+                        <h3 onclick="router('product', '${p.id}')" class="font-display text-lg font-medium text-secondary hover:text-accent transition-colors cursor-pointer line-clamp-1 mb-2">${p.name}</h3>
+                        <p class="text-xs text-secondary/70 line-clamp-1 mb-4">${p.description}</p>
+                    </div>
+                    <div class="flex items-center justify-between pt-4 border-t border-secondary/10">
+                        <div>
+                            <span class="font-display text-lg font-medium text-secondary">₹${p.price.toLocaleString()}</span>
+                            ${p.originalPrice ? `<span class="text-xs text-mutedTaupe line-through ml-2">₹${p.originalPrice.toLocaleString()}</span>` : ''}
+                        </div>
+                        <button onclick="quickAddToCart('${p.id}')" class="bg-secondary text-primary text-xs uppercase tracking-widest px-4 py-2.5 hover:bg-accent transition-colors rounded-xs flex items-center gap-1.5">
+                            <i class="fa-solid fa-bag-shopping"></i> Quick Add
+                        </button>
+                    </div>
+                </div>
+            </div>
+            `;
+        }
+
+        function renderJournalCard(title, excerpt, image, id) {
+            return `
+            <div onclick="router('article', '${id}')" class="group cursor-pointer bg-white/60 border border-secondary/10 rounded-sm overflow-hidden flex flex-col">
+                <div class="aspect-[16/10] overflow-hidden">
+                    <img src="${image}" alt="${title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="p-6 flex flex-col flex-1 justify-between">
+                    <div>
+                        <span class="text-[10px] uppercase tracking-[0.25em] text-accent mb-2 block">Journal Article</span>
+                        <h3 class="font-display text-xl mb-3 group-hover:text-accent transition-colors">${title}</h3>
+                        <p class="text-sm text-secondary/70 mb-4">${excerpt}</p>
+                    </div>
+                    <span class="text-xs font-semibold uppercase tracking-widest flex items-center gap-2">Read Article <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+            </div>
+            `;
+        }
+
+        function renderShop() {
+            return `
+            <div class="max-w-[1440px] mx-auto px-6 py-12">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-xs uppercase tracking-[0.3em] text-mutedTaupe block mb-2">Catalog Discovery</span>
+                    <h1 class="font-display text-4xl md:text-6xl mb-4">Shop All</h1>
+                    <p class="text-secondary/70">Comfort, curated for your home.</p>
+                </div>
+                
+                <!-- Filters & Sorting Header -->
+                <div class="flex flex-col md:flex-row justify-between items-center pb-8 mb-8 border-b border-secondary/10 gap-4">
+                    <div class="flex flex-wrap items-center gap-3 w-full md:w-auto">
+                        <select onchange="filterProductsByCategory(this.value)" class="bg-white/80 border border-secondary/20 px-4 py-2.5 text-xs uppercase tracking-wider rounded-sm focus:outline-none focus:border-accent">
+                            <option value="All">All Categories</option>
+                            <option value="Bedsheets">Bedsheets</option>
+                            <option value="Pillows">Pillows</option>
+                            <option value="Cushions">Cushions</option>
+                            <option value="Blankets">Blankets</option>
+                            <option value="Décor">Décor</option>
+                        </select>
+                        <select onchange="sortProducts(this.value)" class="bg-white/80 border border-secondary/20 px-4 py-2.5 text-xs uppercase tracking-wider rounded-sm focus:outline-none focus:border-accent">
+                            <option value="featured">Featured</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="rating">Best Rated</option>
+                        </select>
+                    </div>
+                    <p class="text-xs text-mutedTaupe uppercase tracking-widest">Showing <span id="product-count">${PRODUCTS.length}</span> Products</p>
+                </div>
+
+                <!-- Product Grid -->
+                <div id="shop-product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    ${PRODUCTS.map(p => renderProductCard(p)).join('')}
+                </div>
+            </div>
+            `;
+        }
+
+        function renderCategory(catName) {
+            const filtered = catName ? PRODUCTS.filter(p => p.category.toLowerCase() === catName.toLowerCase()) : PRODUCTS;
+            return `
+            <div class="max-w-[1440px] mx-auto px-6 py-12">
+                <div class="relative bg-softBeige/40 rounded-md p-12 md:p-20 text-center mb-16 overflow-hidden">
+                    <div class="absolute inset-0 z-0">
+                        <img src="https://i.ibb.co/qFsfgPnQ/Sunlit-Lemon-Haven-Bedroom.png" alt="Category Hero" class="w-full h-full object-cover opacity-20">
+                    </div>
+                    <div class="relative z-10 max-w-2xl mx-auto">
+                        <span class="text-xs uppercase tracking-[0.3em] text-accent block mb-2">Curated Collection</span>
+                        <h1 class="font-display text-4xl md:text-6xl mb-4">${catName || 'All Categories'}</h1>
+                        <p class="text-secondary/70">Immaculately crafted for everyday luxury and restorative relaxation.</p>
+                    </div>
+                </div>
+                <div class="flex justify-between items-center pb-6 mb-8 border-b border-secondary/10">
+                    <p class="text-xs uppercase tracking-widest text-mutedTaupe">Category: <span class="text-secondary font-semibold">${catName || 'All'}</span></p>
+                    <button onclick="router('shop')" class="text-xs uppercase tracking-widest hover:text-accent font-semibold">View All Products</button>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    ${filtered.length > 0 ? filtered.map(p => renderProductCard(p)).join('') : '<p class="col-span-full text-center py-16 text-mutedTaupe">No products found in this category.</p>'}
+                </div>
+            </div>
+            `;
+        }
+
+        function renderProductDetail(productId) {
+            const p = PRODUCTS.find(item => item.id === productId) || PRODUCTS[0];
+            return `
+            <div class="max-w-[1440px] mx-auto px-6 py-12">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start mb-24">
+                    <!-- Left: Gallery -->
+                    <div class="space-y-4 sticky top-28">
+                        <div class="aspect-[4/5] bg-softBeige/40 rounded-sm overflow-hidden border border-secondary/10">
+                            <img id="main-product-img" src="${p.images[0]}" alt="${p.name}" class="w-full h-full object-cover">
+                        </div>
+                        <div class="grid grid-cols-3 gap-4">
+                            ${p.images.map((img, idx) => `
+                                <div onclick="document.getElementById('main-product-img').src='${img}'" class="aspect-[4/5] bg-softBeige/40 rounded-xs overflow-hidden border border-secondary/20 cursor-pointer hover:border-accent">
+                                    <img src="${img}" alt="Thumbnail ${idx+1}" class="w-full h-full object-cover">
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <!-- Right: Info -->
+                    <div class="space-y-6">
+                        <div>
+                            <span class="text-xs uppercase tracking-[0.3em] text-mutedTaupe block mb-2">${p.category}</span>
+                            <h1 class="font-display text-3xl md:text-5xl font-normal mb-4">${p.name}</h1>
+                            <div class="flex items-center gap-4 text-sm">
+                                <span class="flex items-center gap-1 text-secondary font-medium"><i class="fa-solid fa-star text-accent"></i> ${p.rating} / 5.0</span>
+                                <span class="text-mutedTaupe">(${p.reviews} Verified Reviews)</span>
+                            </div>
+                        </div>
+
+                        <div class="flex items-baseline gap-4 pt-4 border-t border-secondary/10">
+                            <span class="font-display text-3xl font-medium">₹${p.price.toLocaleString()}</span>
+                            ${p.originalPrice ? `<span class="text-lg text-mutedTaupe line-through">₹${p.originalPrice.toLocaleString()}</span>` : ''}
+                            ${p.discount ? `<span class="bg-accent/10 text-accent text-xs px-2.5 py-1 rounded-xs font-semibold uppercase tracking-wider">Save ${p.discount}%</span>` : ''}
+                        </div>
+
+                        <p class="text-secondary/80 leading-relaxed font-body">${p.description}</p>
+
+                        <!-- Color Selector -->
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-mutedTaupe mb-3">Color: <span class="text-secondary font-semibold" id="selected-color">${p.colors[0]}</span></label>
+                            <div class="flex gap-3">
+                                ${p.colors.map((c, idx) => `
+                                    <button onclick="document.getElementById('selected-color').innerText='${c}'" class="px-4 py-2 border ${idx === 0 ? 'border-secondary bg-secondary text-primary' : 'border-secondary/30 bg-white/60 text-secondary'} text-xs rounded-xs font-medium hover:border-secondary transition-colors">${c}</button>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                        <!-- Size Selector -->
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-mutedTaupe mb-3">Size: <span class="text-secondary font-semibold" id="selected-size">${p.sizes[0]}</span></label>
+                            <div class="flex gap-3">
+                                ${p.sizes.map((s, idx) => `
+                                    <button onclick="document.getElementById('selected-size').innerText='${s}'" class="px-5 py-2.5 border ${idx === 0 ? 'border-secondary bg-secondary text-primary' : 'border-secondary/30 bg-white/60 text-secondary'} text-xs rounded-xs font-medium hover:border-secondary transition-colors">${s}</button>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                        <!-- Quantity & Add to Cart -->
+                        <div class="flex flex-col sm:flex-row gap-4 pt-6 border-t border-secondary/10">
+                            <div class="flex items-center border border-secondary/30 bg-white/60 rounded-xs">
+                                <button onclick="adjustQty(-1)" class="px-4 py-3 hover:text-accent"><i class="fa-solid fa-minus text-xs"></i></button>
+                                <span id="qty-input" class="px-4 text-sm font-medium">1</span>
+                                <button onclick="adjustQty(1)" class="px-4 py-3 hover:text-accent"><i class="fa-solid fa-plus text-xs"></i></button>
+                            </div>
+                            <button onclick="addToCartFromDetail('${p.id}')" class="flex-1 bg-secondary text-primary py-4 px-8 text-xs uppercase tracking-[0.2em] hover:bg-accent transition-colors rounded-xs flex items-center justify-center gap-2 font-medium">
+                                <i class="fa-solid fa-bag-shopping"></i> Add to Bag
+                            </button>
+                            <button onclick="toggleWishlist('${p.id}')" class="p-4 border border-secondary/30 hover:border-accent rounded-xs text-secondary transition-colors" title="Wishlist">
+                                <i class="fa-regular fa-heart text-base"></i>
+                            </button>
+                        </div>
+
+                        <!-- Pincode Delivery Check -->
+                        <div class="p-6 bg-white/60 rounded-sm border border-secondary/10 space-y-3">
+                            <h4 class="text-xs uppercase tracking-widest font-semibold">Check Delivery Availability</h4>
+                            <div class="flex gap-2">
+                                <input type="text" id="pincode-input" placeholder="Enter Pincode (e.g. 110001)" class="flex-1 bg-white border border-secondary/20 px-4 py-2.5 text-xs rounded-xs focus:outline-none focus:border-accent">
+                                <button onclick="checkDelivery()" class="bg-secondary text-primary px-5 py-2.5 text-xs uppercase tracking-widest rounded-xs hover:bg-accent transition-colors">Check</button>
+                            </div>
+                            <p id="delivery-result" class="text-xs text-mutedTaupe"></p>
+                        </div>
+
+                        <!-- Accordion Information -->
+                        <div class="divide-y divide-secondary/10 border-t border-b border-secondary/10">
+                            <div class="py-4">
+                                <button onclick="toggleAccordion('acc-mat')" class="w-full flex justify-between items-center text-left font-display text-lg">
+                                    <span>Materials & Specifications</span>
+                                    <i class="fa-solid fa-chevron-down text-xs"></i>
+                                </button>
+                                <div id="acc-mat" class="hidden pt-3 text-sm text-secondary/70 leading-relaxed">
+                                    <p><strong>Material:</strong> ${p.material}</p>
+                                    <p class="mt-2">Crafted with non-toxic OEKO-TEX certified dyes, ensuring absolute safety for sensitive skin and sustainable environmental standards.</p>
+                                </div>
+                            </div>
+                            <div class="py-4">
+                                <button onclick="toggleAccordion('acc-care')" class="w-full flex justify-between items-center text-left font-display text-lg">
+                                    <span>Care Instructions</span>
+                                    <i class="fa-solid fa-chevron-down text-xs"></i>
+                                </button>
+                                <div id="acc-care" class="hidden pt-3 text-sm text-secondary/70 leading-relaxed">
+                                    <p>${p.careInstructions}</p>
+                                </div>
+                            </div>
+                            <div class="py-4">
+                                <button onclick="toggleAccordion('acc-ship')" class="w-full flex justify-between items-center text-left font-display text-lg">
+                                    <span>Shipping & Returns</span>
+                                    <i class="fa-solid fa-chevron-down text-xs"></i>
+                                </button>
+                                <div id="acc-ship" class="hidden pt-3 text-sm text-secondary/70 leading-relaxed">
+                                    <p>Complimentary express shipping across India on orders above ₹999. 30-day hassle-free return policy in original packaging.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- You May Also Like -->
+                <div class="pt-16 border-t border-secondary/10">
+                    <h3 class="font-display text-3xl mb-8">You May Also Like</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                        ${PRODUCTS.filter(item => item.id !== p.id).slice(0, 4).map(item => renderProductCard(item)).join('')}
+                    </div>
+                </div>
+            </div>
+            `;
+        }
+
+        function renderCollections() {
+            return `
+            <div class="max-w-[1440px] mx-auto px-6 py-12">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-xs uppercase tracking-[0.3em] text-mutedTaupe block mb-2">Editorial Series</span>
+                    <h1 class="font-display text-4xl md:text-6xl mb-4">Collections</h1>
+                    <p class="text-secondary/70">Cohesive design narratives for the modern home.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    ${renderCollectionCard("Sunlit Lemon Haven", "Soft morning light aesthetics with breathable organic cotton percale.", "https://i.ibb.co/qFsfgPnQ/Sunlit-Lemon-Haven-Bedroom.png")}
+                    ${renderCollectionCard("Cozy Teal Botanical", "Deep tranquil tones and serene foliage patterns for restorative sleep.", "https://i.ibb.co/JjGT7gmp/Cozy-Teal-Botanical-Bedroom.png")}
+                    ${renderCollectionCard("Sunny Mustard Floral", "Sun-kissed vibrancy blooming over soft ivory cream cotton.", "https://i.ibb.co/0pDkrkzx/Sunny-Mustard-Floral-Bedroom.png")}
+                    ${renderCollectionCard("Elegant Charcoal Floral", "Sophisticated charcoal tones meeting exquisite floral artistry.", "https://i.ibb.co/TqgYhg49/Elegant-Charcoal-Floral-Bedroom.png")}
+                </div>
+            </div>
+            `;
+        }
+
+        function renderCollectionCard(title, desc, image) {
+            return `
+            <div class="group cursor-pointer relative overflow-hidden rounded-md aspect-[16/10] bg-softBeige/40 flex flex-col justify-end p-8 md:p-12" onclick="router('category', 'Bedsheets')">
+                <div class="absolute inset-0 z-0 overflow-hidden">
+                    <img src="${image}" alt="${title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105">
+                    <div class="absolute inset-0 bg-gradient-to-t from-secondary/80 via-secondary/20 to-transparent"></div>
+                </div>
+                <div class="relative z-10 text-primary">
+                    <span class="text-[10px] uppercase tracking-[0.3em] text-primary/80 mb-2 block">Curated Series</span>
+                    <h3 class="font-display text-3xl mb-2">${title}</h3>
+                    <p class="text-sm text-primary/80 mb-6 max-w-md">${desc}</p>
+                    <span class="text-xs uppercase tracking-widest font-semibold flex items-center gap-2">Explore Collection <i class="fa-solid fa-arrow-right"></i></span>
+                </div>
+            </div>
+            `;
+        }
+
+        function renderNewArrivals() {
+            const newProds = PRODUCTS.filter(p => p.badge === 'New Arrival' || p.badge === 'Trending' || p.badge === 'Editor\'s Pick');
+            return `
+            <div class="max-w-[1440px] mx-auto px-6 py-12">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-xs uppercase tracking-[0.3em] text-mutedTaupe block mb-2">Just Released</span>
+                    <h1 class="font-display text-4xl md:text-6xl mb-4">New Arrivals</h1>
+                    <p class="text-secondary/70">The latest additions to the SNEHA lifestyle catalog.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    ${newProds.map(p => renderProductCard(p)).join('')}
+                </div>
+            </div>
+            `;
+        }
+
+        function renderBestSellers() {
+            const bestProds = PRODUCTS.filter(p => p.badge === 'Best Seller' || p.rating >= 4.9);
+            return `
+            <div class="max-w-[1440px] mx-auto px-6 py-12">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-xs uppercase tracking-[0.3em] text-mutedTaupe block mb-2">Customer Favorites</span>
+                    <h1 class="font-display text-4xl md:text-6xl mb-4">Best Sellers</h1>
+                    <p class="text-secondary/70">Our most beloved pieces, cherished in homes across the country.</p>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                    ${bestProds.map(p => renderProductCard(p)).join('')}
+                </div>
+            </div>
+            `;
+        }
+
+        function renderServices() {
+            return `
+            <div class="max-w-[1440px] mx-auto px-6 py-12">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-xs uppercase tracking-[0.3em] text-mutedTaupe block mb-2">Concierge & Care</span>
+                    <h1 class="font-display text-4xl md:text-6xl mb-4">SNEHA Services</h1>
+                    <p class="text-secondary/70">Elevating your home styling and gifting experience.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
+                    <div class="bg-white/60 p-10 rounded-md border border-secondary/10 flex flex-col justify-between">
+                        <div>
+                            <i class="fa-solid fa-wand-magic-sparkles text-3xl text-accent mb-6"></i>
+                            <h3 class="font-display text-2xl mb-4">Bedroom Styling Assistance</h3>
+                            <p class="text-secondary/70 leading-relaxed mb-6">Our interior consultants work with you via video or chat to review your bedroom lighting, paint tones, and furniture finish to recommend the ideal bedding palette.</p>
+                        </div>
+                        <button onclick="showToast('Styling appointment request initiated. We will contact you.')" class="bg-secondary text-primary py-3 px-6 text-xs uppercase tracking-widest rounded-xs hover:bg-accent transition-colors self-start">Book Consultation</button>
+                    </div>
+                    <div class="bg-white/60 p-10 rounded-md border border-secondary/10 flex flex-col justify-between">
+                        <div>
+                            <i class="fa-solid fa-gift text-3xl text-accent mb-6"></i>
+                            <h3 class="font-display text-2xl mb-4">Signature Gift Packaging</h3>
+                            <p class="text-secondary/70 leading-relaxed mb-6">Every wedding, anniversary, or housewarming gift can be packaged in our heavy-gauge keepsake gift boxes with custom handwritten calligraphy cards.</p>
+                        </div>
+                        <button onclick="showToast('Gift packaging available during checkout.')" class="bg-secondary text-primary py-3 px-6 text-xs uppercase tracking-widest rounded-xs hover:bg-accent transition-colors self-start">Learn More</button>
+                    </div>
+                </div>
+            </div>
+            `;
+        }
+
+        function renderAbout() {
+            return `
+            <div class="max-w-[1440px] mx-auto px-6 py-12">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <span class="text-xs uppercase tracking-[0.3em] text-mutedTaupe block mb-2">Our Philosophy</span>
+                    <h1 class="font-display text-4xl md:text-6xl mb-6">“Made for the way you live.”</h1>
+                    <p class="text-lg text-secondary/80 leading-relaxed">SNEHA was founded on the belief that your home should be your sanctuary—a place of absolute tactile comfort and quiet visual elegance.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-24">
+                    <div class="aspect-[4/3] rounded-sm overflow-hidden">
+                        <img src="https://i.ibb.co/qFsfgPnQ/Sunlit-Lemon-Haven-Bedroom.png" alt="SNEHA Philosophy" class="w-full h-full object-cover">
+                    </div>
+                    <div class="space-y-6">
+                        <h3 class="font-display text-3xl">Thoughtful Craftsmanship</h3>
+                        <p class="text-secondary/70 leading-relaxed">We partner directly with generational textile artisans who utilize sustainable organic farming practices. By omitting middlemen, we ensure fair artisan wages while delivering exceptional luxury directly to your doorstep.</p>
+                        <p class="text-secondary/70 leading-relaxed">Every thread is tested for durability, breathability, and sumptuous softness.</p>
+                    </div>
+                </div>
+            </div>
+            `;
+        }
+
+        function renderJournal() {
+            return `
+            <div class="max-w-[1440px] mx-auto px-6 py-12">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-xs uppercase tracking-[0.3em] text-mutedTaupe block mb-2">Editorial Magazine</span>
+                    <h1 class="font-display text-4xl md:text-6xl mb-4">The Journal</h1>
+                    <p class="text-secondary/70">Thoughts on slow living, interior styling, and restful sleep.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    ${renderJournalCard('How to Build a Calm Bedroom', 'Designing spaces that soothe the nervous system after busy days.', 'https://i.ibb.co/qFsfgPnQ/Sunlit-Lemon-Haven-Bedroom.png', '1')}
+                    ${renderJournalCard('5 Ways to Style Neutral Bedding', 'Layering textures and pillow configurations like an interior designer.', 'https://i.ibb.co/1GqNLft4/Cozy-Cream-Floral-Bedroom-Retreat.png', '2')}
+                    ${renderJournalCard('The Art of Making Your Bed', 'Morning rituals that set a mindful tone for your entire day.', 'https://i.ibb.co/TqgYhg49/Elegant-Charcoal-Floral-Bedroom.png', '3')}
+                    ${renderJournalCard('Choosing the Right Bedsheet Fabric', 'Percale vs Sateen vs Linen: What is best for your sleep climate?', 'https://i.ibb.co/5g3nhD2g/Sage-Green-Botanical-Bedroom-Retreat.png', '4')}
+                </div>
+            </div>
+            `;
+        }
+
+        function renderJournalArticle(id) {
+            return `
+            <div class="max-w-4xl mx-auto px-6 py-12">
+                <button onclick="router('journal')" class="text-xs uppercase tracking-widest font-semibold mb-8 hover:text-accent flex items-center gap-2"><i class="fa-solid fa-arrow-left"></i> Back to Journal</button>
+                <span class="text-xs uppercase tracking-[0.3em] text-accent block mb-2">Editorial Article</span>
+                <h1 class="font-display text-4xl md:text-6xl mb-6">How to Build a Calm Bedroom Sanctuary</h1>
+                <p class="text-mutedTaupe text-sm mb-8">Published on October 9, 2026 • 5 min read</p>
+                <div class="aspect-[16/9] rounded-sm overflow-hidden mb-12">
+                    <img src="https://i.ibb.co/qFsfgPnQ/Sunlit-Lemon-Haven-Bedroom.png" alt="Article Cover" class="w-full h-full object-cover">
+                </div>
+                <div class="prose max-w-none space-y-6 text-secondary/80 leading-relaxed font-body text-lg">
+                    <p>Your bedroom should not merely be a place where sleep happens; it should be a restorative sanctuary that actively calms your nervous system the moment you step across the threshold.</p>
+                    <p>Begin with your colour palette. Opt for warm ivories, soft creams, and earth-inspired sage or terracotta tones that reflect natural light during the day and cocoon you in warmth at night.</p>
+                    <h3 class="font-display text-2xl pt-4">1. Prioritize Breathable Fabrics</h3>
+                    <p>Synthetic fibers trap heat and disrupt sleep cycles. Invest in 100% organic cotton percale or Belgian flax linen that allows your skin to breathe naturally throughout the night.</p>
+                    <h3 class="font-display text-2xl pt-4">2. The Power of Textural Layering</h3>
+                    <p>Combine crisp bedsheets with a heavyweight cashmere-touch throw and structured velvet cushions. This creates visual depth and tactile richness without cluttering your room.</p>
+                </div>
+            </div>
+            `;
+        }
+
+        function renderWishlist() {
+            return `
+            <div class="max-w-[1440px] mx-auto px-6 py-12">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <span class="text-xs uppercase tracking-[0.3em] text-mutedTaupe block mb-2">Saved Pieces</span>
+                    <h1 class="font-display text-4xl md:text-6xl mb-4">Your Wishlist</h1>
+                    <p class="text-secondary/70">Items you have set aside for your dream home.</p>
+                </div>
+                ${wishlist.length === 0 ? `
+                    <div class="text-center py-20">
+                        <i class="fa-regular fa-heart text-5xl text-mutedTaupe/40 mb-4"></i>
+                        <h3 class="font-display text-2xl mb-2">Your wishlist is empty</h3>
+                        <p class="text-sm text-secondary/60 mb-6">Explore our catalog and save your favorite pieces.</p>
+                        <button onclick="router('shop')" class="bg-secondary text-primary px-8 py-3 text-xs uppercase tracking-widest hover:bg-accent transition-colors rounded-xs">Explore Shop</button>
+                    </div>
+                ` : `
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                        ${wishlist.map(id => {
+                            const p = PRODUCTS.find(item => item.id === id);
+                            return p ? renderProductCard(p) : '';
+                        }).join('')}
+                    </div>
+                `}
+            </div>
+            `;
+        }
+
+        function renderCart() {
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            return `
+            <div class="max-w-5xl mx-auto px-6 py-12">
+                <div class="text-center mb-16">
+                    <span class="text-xs uppercase tracking-[0.3em] text-mutedTaupe block mb-2">Shopping Bag</span>
+                    <h1 class="font-display text-4xl md:text-6xl mb-4">Your Bag (${cart.reduce((s, i) => s + i.qty, 0)})</h1>
+                </div>
+                ${cart.length === 0 ? `
+                    <div class="text-center py-20 bg-white/40 rounded-sm border border-secondary/10">
+                        <i class="fa-solid fa-bag-shopping text-5xl text-mutedTaupe/40 mb-4"></i>
+                        <h3 class="font-display text-2xl mb-2">Your shopping bag is empty</h3>
+                        <p class="text-sm text-secondary/60 mb-6">Discover our exquisite collection of bedding and home essentials.</p>
+                        <button onclick="router('shop')" class="bg-secondary text-primary px-8 py-3 text-xs uppercase tracking-widest hover:bg-accent transition-colors rounded-xs">Start Shopping</button>
+                    </div>
+                ` : `
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12">
+                        <div class="lg:col-span-2 space-y-6">
+                            ${cart.map(item => `
+                                <div class="flex gap-6 bg-white/60 p-6 rounded-sm border border-secondary/10 items-center">
+                                    <img src="${item.image}" alt="${item.name}" class="w-24 h-28 object-cover rounded-xs">
+                                    <div class="flex-1">
+                                        <h3 class="font-display text-lg mb-1">${item.name}</h3>
+                                        <p class="text-xs text-mutedTaupe mb-3">Color: ${item.color || 'Standard'} • Size: ${item.size || 'Standard'}</p>
+                                        <div class="flex items-center gap-4">
+                                            <div class="flex items-center border border-secondary/20 rounded-xs bg-white">
+                                                <button onclick="updateCartQty('${item.id}', -1)" class="px-3 py-1 hover:text-accent"><i class="fa-solid fa-minus text-[10px]"></i></button>
+                                                <span class="px-3 text-xs font-medium">${item.qty}</span>
+                                                <button onclick="updateCartQty('${item.id}', 1)" class="px-3 py-1 hover:text-accent"><i class="fa-solid fa-plus text-[10px]"></i></button>
+                                            </div>
+                                            <button onclick="removeFromCart('${item.id}')" class="text-xs text-mutedTaupe hover:text-accent uppercase tracking-wider">Remove</button>
+                                        </div>
+                                    </div>
+                                    <div class="text-right">
+                                        <span class="font-display text-lg font-medium">₹${(item.price * item.qty).toLocaleString()}</span>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                        <div class="bg-white/60 p-8 rounded-sm border border-secondary/10 h-fit space-y-6">
+                            <h3 class="font-display text-xl pb-4 border-b border-secondary/10">Order Summary</h3>
+                            <div class="flex justify-between text-sm">
+                                <span>Subtotal</span>
+                                <span class="font-display font-medium">₹${subtotal.toLocaleString()}</span>
+                            </div>
+                            <div class="flex justify-between text-sm">
+                                <span>Express Shipping</span>
+                                <span class="text-accent font-medium">FREE</span>
+                            </div>
+                            <div class="pt-4 border-t border-secondary/10 flex justify-between text-base font-semibold">
+                                <span>Total</span>
+                                <span class="font-display text-2xl">₹${subtotal.toLocaleString()}</span>
+                            </div>
+                            <button onclick="router('checkout')" class="w-full bg-secondary text-primary py-4 text-center text-xs uppercase tracking-widest hover:bg-accent transition-colors rounded-xs font-medium">
+                                Proceed to Checkout
+                            </button>
+                        </div>
+                    </div>
+                `}
+            </div>
+            `;
+        }
+
+        function renderCheckout() {
+            const subtotal = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            return `
+            <div class="max-w-4xl mx-auto px-6 py-12">
+                <div class="text-center mb-12">
+                    <span class="text-xs uppercase tracking-[0.3em] text-mutedTaupe block mb-2">Secure Checkout</span>
+                    <h1 class="font-display text-4xl mb-4">SNEHA Secure Order</h1>
+                </div>
+                <form onsubmit="event.preventDefault(); handleOrderSuccess();" class="grid grid-cols-1 md:grid-cols-2 gap-12 bg-white/60 p-8 md:p-12 rounded-sm border border-secondary/10">
+                    <div class="space-y-6">
+                        <h3 class="font-display text-xl pb-3 border-b border-secondary/10">01. Shipping Information</h3>
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-mutedTaupe mb-2">Full Name *</label>
+                            <input type="text" required class="w-full bg-white border border-secondary/20 p-3 text-sm rounded-xs focus:outline-none focus:border-accent" placeholder="Aanya Sharma">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block text-xs uppercase tracking-widest text-mutedTaupe mb-2">Mobile *</label>
+                                <input type="tel" required class="w-full bg-white border border-secondary/20 p-3 text-sm rounded-xs focus:outline-none focus:border-accent" placeholder="+91 98765 43210">
+                            </div>
+                            <div>
+                                <label class="block text-xs uppercase tracking-widest text-mutedTaupe mb-2">Email *</label>
+                                <input type="email" required class="w-full bg-white border border-secondary/20 p-3 text-sm rounded-xs focus:outline-none focus:border-accent" placeholder="aanya@example.com">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-mutedTaupe mb-2">Address *</label>
+                            <input type="text" required class="w-full bg-white border border-secondary/20 p-3 text-sm rounded-xs focus:outline-none focus:border-accent" placeholder="House/Apartment, Street name">
+                        </div>
+                        <div class="grid grid-cols-3 gap-4">
+                            <div>
+                                <label class="block text-xs uppercase tracking-widest text-mutedTaupe mb-2">City *</label>
+                                <input type="text" required class="w-full bg-white border border-secondary/20 p-3 text-sm rounded-xs focus:outline-none focus:border-accent" placeholder="New Delhi">
+                            </div>
+                            <div>
+                                <label class="block text-xs uppercase tracking-widest text-mutedTaupe mb-2">State *</label>
+                                <input type="text" required class="w-full bg-white border border-secondary/20 p-3 text-sm rounded-xs focus:outline-none focus:border-accent" placeholder="Delhi">
+                            </div>
+                            <div>
+                                <label class="block text-xs uppercase tracking-widest text-mutedTaupe mb-2">Pincode *</label>
+                                <input type="text" required class="w-full bg-white border border-secondary/20 p-3 text-sm rounded-xs focus:outline-none focus:border-accent" placeholder="110001">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="space-y-6 flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-display text-xl pb-3 border-b border-secondary/10 mb-6">02. Order Summary</h3>
+                            <div class="space-y-4 max-h-60 overflow-y-auto mb-6 pr-2">
+                                ${cart.map(item => `
+                                    <div class="flex justify-between items-center text-sm">
+                                        <span>${item.name} (x${item.qty})</span>
+                                        <span class="font-display">₹${(item.price * item.qty).toLocaleString()}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                            <div class="pt-4 border-t border-secondary/10 space-y-2">
+                                <div class="flex justify-between text-sm"><span>Subtotal</span><span class="font-display">₹${subtotal.toLocaleString()}</span></div>
+                                <div class="flex justify-between text-sm"><span>Express Shipping</span><span class="text-accent">FREE</span></div>
+                                <div class="flex justify-between text-lg font-semibold pt-2 border-t border-secondary/10"><span>Total</span><span class="font-display text-2xl">₹${subtotal.toLocaleString()}</span></div>
+                            </div>
+                        </div>
+                        <button type="submit" class="w-full bg-secondary text-primary py-4 text-center text-xs uppercase tracking-widest hover:bg-accent transition-colors rounded-xs font-medium">
+                            Place Secure Order
+                        </button>
+                    </div>
+                </form>
+            </div>
+            `;
+        }
+
+        function renderAccount() {
+            return `
+            <div class="max-w-xl mx-auto px-6 py-20 text-center">
+                <div class="bg-white/60 p-10 rounded-md border border-secondary/10 space-y-6">
+                    <i class="fa-regular fa-user text-4xl text-accent"></i>
+                    <h1 class="font-display text-3xl">Welcome to SNEHA Circle</h1>
+                    <p class="text-sm text-secondary/70">Sign in or create your account to track orders, manage your wishlist, and receive bespoke interior styling recommendations.</p>
+                    <form onsubmit="event.preventDefault(); showToast('Successfully signed in to SNEHA Circle.'); router('home');" class="space-y-4 text-left">
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-mutedTaupe mb-2">Email Address</label>
+                            <input type="email" required class="w-full bg-white border border-secondary/20 p-3 text-sm rounded-xs focus:outline-none focus:border-accent" placeholder="you@example.com">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-mutedTaupe mb-2">Password</label>
+                            <input type="password" required class="w-full bg-white border border-secondary/20 p-3 text-sm rounded-xs focus:outline-none focus:border-accent" placeholder="••••••••">
+                        </div>
+                        <button type="submit" class="w-full bg-secondary text-primary py-3.5 text-xs uppercase tracking-widest hover:bg-accent transition-colors rounded-xs">Sign In / Register</button>
+                    </form>
+                </div>
+            </div>
+            `;
+        }
+
+        function renderContact() {
+            return `
+            <div class="max-w-3xl mx-auto px-6 py-16">
+                <div class="text-center mb-12">
+                    <span class="text-xs uppercase tracking-[0.3em] text-mutedTaupe block mb-2">We Are Here For You</span>
+                    <h1 class="font-display text-4xl md:text-5xl mb-4">Contact SNEHA</h1>
+                    <p class="text-secondary/70">Reach our concierge team for styling inquiries, order assistance, or bespoke requests.</p>
+                </div>
+                <form onsubmit="event.preventDefault(); showToast('Message sent successfully. Our concierge will reply within 24 hours.'); this.reset();" class="bg-white/60 p-8 md:p-12 rounded-sm border border-secondary/10 space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-mutedTaupe mb-2">Your Name *</label>
+                            <input type="text" required class="w-full bg-white border border-secondary/20 p-3 text-sm rounded-xs focus:outline-none focus:border-accent">
+                        </div>
+                        <div>
+                            <label class="block text-xs uppercase tracking-widest text-mutedTaupe mb-2">Your Email *</label>
+                            <input type="email" required class="w-full bg-white border border-secondary/20 p-3 text-sm rounded-xs focus:outline-none focus:border-accent">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-mutedTaupe mb-2">Subject</label>
+                        <input type="text" class="w-full bg-white border border-secondary/20 p-3 text-sm rounded-xs focus:outline-none focus:border-accent" placeholder="e.g. Styling Assistance">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-mutedTaupe mb-2">Message *</label>
+                        <textarea rows="5" required class="w-full bg-white border border-secondary/20 p-3 text-sm rounded-xs focus:outline-none focus:border-accent" placeholder="How can we assist your sanctuary..."></textarea>
+                    </div>
+                    <button type="submit" class="bg-secondary text-primary py-4 px-8 text-xs uppercase tracking-widest hover:bg-accent transition-colors rounded-xs">Send Message</button>
+                </form>
+            </div>
+            `;
+        }
+
+        function renderFaq() {
+            return `
+            <div class="max-w-4xl mx-auto px-6 py-16">
+                <div class="text-center mb-16">
+                    <span class="text-xs uppercase tracking-[0.3em] text-mutedTaupe block mb-2">Help Center</span>
+                    <h1 class="font-display text-4xl md:text-5xl mb-4">Frequently Asked Questions</h1>
+                </div>
+                <div class="space-y-4">
+                    ${renderFaqItem("What makes SNEHA bedding different from generic brands?", "We exclusively source long-staple organic cotton, French flax linen, and Tencel fibers woven at high thread counts with non-toxic botanical dyes, ensuring butter-soft durability that improves with every wash.")}
+                    ${renderFaqItem("How do I care for my linen and cotton bedsheets?", "Machine wash in cold water on a gentle cycle with mild detergent. Tumble dry on low or line dry in shade. Avoid optical brighteners or harsh bleaching agents.")}
+                    ${renderFaqItem("What is your return policy?", "We offer a 30-day hassle-free return policy for unused items in their original keepsake packaging.")}
+                    ${renderFaqItem("Do you offer express shipping?", "Yes! Complimentary express shipping is included on all orders above ₹999 across India.")}
+                </div>
+            </div>
+            `;
+        }
+
+        function renderFaqItem(q, a) {
+            return `
+            <div class="bg-white/60 p-6 rounded-sm border border-secondary/10">
+                <h3 class="font-display text-lg mb-2">${q}</h3>
+                <p class="text-sm text-secondary/70 leading-relaxed">${a}</p>
+            </div>
+            `;
+        }
+
+        function render404() {
+            return `
+            <div class="max-w-xl mx-auto px-6 py-32 text-center">
+                <h1 class="font-display text-7xl mb-4 text-accent">404</h1>
+                <h2 class="font-display text-3xl mb-4">Page Not Found</h2>
+                <p class="text-secondary/70 mb-8">The page you are looking for might have been moved or does not exist in our sanctuary.</p>
+                <button onclick="router('home')" class="bg-secondary text-primary px-8 py-4 text-xs uppercase tracking-widest hover:bg-accent transition-colors rounded-xs">Return Home</button>
+            </div>
+            `;
+        }
+
+        let currentDetailQty = 1;
+        function adjustQty(val) {
+            currentDetailQty = Math.max(1, currentDetailQty + val);
+            document.getElementById('qty-input').innerText = currentDetailQty;
+        }
+
+        function addToCartFromDetail(productId) {
+            const p = PRODUCTS.find(item => item.id === productId);
+            const color = document.getElementById('selected-color')?.innerText || p.colors[0];
+            const size = document.getElementById('selected-size')?.innerText || p.sizes[0];
+            
+            const existing = cart.find(item => item.id === productId && item.color === color && item.size === size);
+            if(existing) {
+                existing.qty += currentDetailQty;
+            } else {
+                cart.push({
+                    id: p.id,
+                    name: p.name,
+                    price: p.price,
+                    image: p.images[0],
+                    color: color,
+                    size: size,
+                    qty: currentDetailQty
+                });
+            }
+            saveState();
+            toggleCartDrawer();
+            showToast(`Added ${p.name} to your bag.`);
+            currentDetailQty = 1;
+        }
+
+        function quickAddToCart(productId) {
+            const p = PRODUCTS.find(item => item.id === productId);
+            const existing = cart.find(item => item.id === productId);
+            if(existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({
+                    id: p.id,
+                    name: p.name,
+                    price: p.price,
+                    image: p.images[0],
+                    color: p.colors[0],
+                    size: p.sizes[0],
+                    qty: 1
+                });
+            }
+            saveState();
+            toggleCartDrawer();
+            showToast(`Added ${p.name} to your bag.`);
+        }
+
+        function updateCartQty(productId, delta) {
+            const item = cart.find(i => i.id === productId);
+            if(item) {
+                item.qty += delta;
+                if(item.qty <= 0) {
+                    cart = cart.filter(i => i.id !== productId);
+                }
+                saveState();
+                if(currentRoute === 'cart') renderView();
+                updateCartDrawerHTML();
+            }
+        }
+
+        function removeFromCart(productId) {
+            cart = cart.filter(i => i.id !== productId);
+            saveState();
+            if(currentRoute === 'cart') renderView();
+            updateCartDrawerHTML();
+            showToast("Item removed from bag.");
+        }
+
+        function toggleWishlist(productId) {
+            if(wishlist.includes(productId)) {
+                wishlist = wishlist.filter(id => id !== productId);
+                showToast("Removed from wishlist.");
+            } else {
+                wishlist.push(productId);
+                showToast("Saved to wishlist.");
+            }
+            saveState();
+            if(currentRoute === 'wishlist' || currentRoute === 'shop' || currentRoute === 'home') {
+                renderView();
+            }
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const panel = document.getElementById('mobile-menu-panel');
+            if(menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                setTimeout(() => panel.classList.remove('-translate-x-full'), 10);
+            } else {
+                panel.classList.add('-translate-x-full');
+                setTimeout(() => menu.classList.add('hidden'), 300);
+            }
+        }
+
+        function toggleCartDrawer() {
+            const drawer = document.getElementById('cart-drawer');
+            const panel = document.getElementById('cart-drawer-panel');
+            updateCartDrawerHTML();
+            if(drawer.classList.contains('hidden')) {
+                drawer.classList.remove('hidden');
+                setTimeout(() => panel.classList.remove('translate-x-full'), 10);
+            } else {
+                panel.classList.add('translate-x-full');
+                setTimeout(() => drawer.classList.add('hidden'), 300);
+            }
+        }
+
+        function updateCartDrawerHTML() {
+            const container = document.getElementById('cart-items-container');
+            const headerCount = document.getElementById('cart-count-header');
+            const subtotalEl = document.getElementById('cart-subtotal');
+            if(!container) return;
+
+            const totalQty = cart.reduce((s, i) => s + i.qty, 0);
+            const subtotal = cart.reduce((s, i) => s + (i.price * i.qty), 0);
+            if(headerCount) headerCount.innerText = totalQty;
+            if(subtotalEl) subtotalEl.innerText = '₹' + subtotal.toLocaleString();
+
+            if(cart.length === 0) {
+                container.innerHTML = `<p class="text-center text-mutedTaupe py-12 text-sm">Your shopping bag is empty.</p>`;
+                return;
+            }
+
+            container.innerHTML = cart.map(item => `
+                <div class="flex gap-4 pt-4 first:pt-0">
+                    <img src="${item.image}" alt="${item.name}" class="w-16 h-20 object-cover rounded-xs">
+                    <div class="flex-1">
+                        <h4 class="font-display text-sm font-medium line-clamp-1">${item.name}</h4>
+                        <p class="text-[11px] text-mutedTaupe mb-2">${item.color} • ${item.size}</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center border border-secondary/20 rounded-xs">
+                                <button onclick="updateCartQty('${item.id}', -1)" class="px-2 py-0.5 hover:text-accent"><i class="fa-solid fa-minus text-[9px]"></i></button>
+                                <span class="px-2 text-xs">${item.qty}</span>
+                                <button onclick="updateCartQty('${item.id}', 1)" class="px-2 py-0.5 hover:text-accent"><i class="fa-solid fa-plus text-[9px]"></i></button>
+                            </div>
+                            <span class="font-display text-sm font-medium">₹${(item.price * item.qty).toLocaleString()}</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function openSearch() {
+            document.getElementById('search-overlay').classList.remove('hidden');
+            document.getElementById('global-search-input').focus();
+        }
+
+        function closeSearch() {
+            document.getElementById('search-overlay').classList.add('hidden');
+        }
+
+        function quickSearch(keyword) {
+            document.getElementById('global-search-input').value = keyword;
+            handleSearchInput(keyword);
+        }
+
+        function handleSearchInput(query) {
+            const container = document.getElementById('search-live-results');
+            if(!query.trim()) {
+                container.innerHTML = '';
+                return;
+            }
+            const results = PRODUCTS.filter(p => p.name.toLowerCase().includes(query.toLowerCase()) || p.category.toLowerCase().includes(query.toLowerCase()) || p.description.toLowerCase().includes(query.toLowerCase()));
+            if(results.length === 0) {
+                container.innerHTML = `<p class="col-span-full text-center text-mutedTaupe py-8">No products found matching "${query}".</p>`;
+                return;
+            }
+            container.innerHTML = results.map(p => `
+                <div onclick="closeSearch(); router('product', '${p.id}');" class="flex gap-4 p-3 bg-white/60 border border-secondary/10 rounded-sm cursor-pointer hover:border-accent">
+                    <img src="${p.images[0]}" class="w-14 h-16 object-cover rounded-xs">
+                    <div>
+                        <h4 class="font-display text-sm font-medium line-clamp-1">${p.name}</h4>
+                        <p class="text-xs text-accent font-semibold mt-1">₹${p.price.toLocaleString()}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterProductsByCategory(cat) {
+            const grid = document.getElementById('shop-product-grid');
+            const countEl = document.getElementById('product-count');
+            const filtered = cat === 'All' ? PRODUCTS : PRODUCTS.filter(p => p.category.toLowerCase() === cat.toLowerCase());
+            if(countEl) countEl.innerText = filtered.length;
+            if(grid) {
+                grid.innerHTML = filtered.length > 0 ? filtered.map(p => renderProductCard(p)).join('') : '<p class="col-span-full text-center py-16 text-mutedTaupe">No products found in this category.</p>';
+            }
+        }
+
+        function sortProducts(criteria) {
+            let sorted = [...PRODUCTS];
+            if(criteria === 'price-low') sorted.sort((a,b) => a.price - b.price);
+            else if(criteria === 'price-high') sorted.sort((a,b) => b.price - a.price);
+            else if(criteria === 'rating') sorted.sort((a,b) => b.rating - a.rating);
+            
+            const grid = document.getElementById('shop-product-grid');
+            if(grid) {
+                grid.innerHTML = sorted.map(p => renderProductCard(p)).join('');
+            }
+        }
+
+        function toggleAccordion(id) {
+            const el = document.getElementById(id);
+            if(el) {
+                el.classList.toggle('hidden');
+            }
+        }
+
+        function checkDelivery() {
+            const pin = document.getElementById('pincode-input').value;
+            const res = document.getElementById('delivery-result');
+            if(pin.length === 6) {
+                res.innerText = `✓ Express delivery available for ${pin}. Arrives within 2-4 business days.`;
+                res.className = "text-xs text-green-700 font-medium";
+            } else {
+                res.innerText = "Please enter a valid 6-digit postal code.";
+                res.className = "text-xs text-accent font-medium";
+            }
+        }
+
+        function handleOrderSuccess() {
+            cart = [];
+            saveState();
+            showToast("Order placed successfully! Thank you for choosing SNEHA.");
+            router('home');
+        }
+
+        function showToast(msg) {
+            const toast = document.createElement('div');
+            toast.className = "fixed bottom-8 right-8 z-50 bg-secondary text-primary px-6 py-3 rounded-sm shadow-2xl text-xs uppercase tracking-widest fade-in flex items-center gap-3";
+            toast.innerHTML = `<i class="fa-solid fa-circle-check text-accent text-sm"></i> <span>${msg}</span>`;
+            document.body.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 500);
+            }, 3000);
+        }
+
+        /* Initial Load */
+        window.onload = function() {
+            updateBadges();
+            router('home');
+        };
+    </script>
+</body>
+</html>
